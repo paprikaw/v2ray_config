@@ -1,4 +1,4 @@
-# v2ray_config
+jjjjjjj# v2ray_config
 
 This repository includes both server and client end of configuration for v2ray
 
@@ -10,10 +10,10 @@ This repository includes both server and client end of configuration for v2ray
   * 按照指示安装
 * 下载配置文件到正确的配置位置
     
-    通常v2ray的配置文件路径是/etc/local/etc/v2ray/config.json, 以下命令中这个路径可被替换成任何有效的配置文件路径
+    通常v2ray的配置文件路径是/usr/local/etc/v2ray/config.json, 以下命令中这个路径可被替换成任何有效的配置文件路径
 
     ```
-     curl -o /etc/local/etc/v2ray/config.json https://raw.githubusercontent.com/paprikaw/v2ray_config/main/server_end/config.json 
+     curl -o /usr/local/etc/v2ray/config.json https://raw.githubusercontent.com/paprikaw/v2ray_config/main/server_end/config.json 
      ```
     
 #### 客户端：
