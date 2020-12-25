@@ -1,4 +1,9 @@
 {
+  "log": {
+    "loglevel": "debug", 
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log"
+  },
   "inbounds": [{
     "port": 443,
     "protocol": "vmess",
@@ -6,7 +11,6 @@
       "clients": [
         {
           "id": "e3325ffc-1532-4aac-a8a9-455430452599",
-          "level": 1,
           "alterId": 64
         }
       ]
@@ -23,7 +27,6 @@
         ]
       }
     }
-  }
 ],
   "outbounds": [{
     "protocol": "freedom",
@@ -33,13 +36,4 @@
     "settings": {},
     "tag": "blocked"
   }],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": ["geoip:private"],
-        "outboundTag": "blocked"
-      }
-    ]
-  }
 }
