@@ -10,8 +10,21 @@
           "alterId": 64
         }
       ]
+    },
+    "streamSettings": {
+      "network": "tcp",
+      "security": "tls", 
+      "tlsSettings": {
+        "certificates": [
+          {
+            "certificateFile": "/usr/local/etc/v2ray/v2ray.crt", 
+            "keyFile": "/usr/local/etc/v2ray/v2ray.key" 
+          }
+        ]
+      }
     }
-  }],
+  }
+],
   "outbounds": [{
     "protocol": "freedom",
     "settings": {}
