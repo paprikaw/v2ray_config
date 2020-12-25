@@ -16,7 +16,7 @@
       ]
     },
     "streamSettings": {
-      "network": "tcp",
+      "network": "ws",
       "security": "tls", 
       "tlsSettings": {
         "certificates": [
