@@ -1,4 +1,4 @@
-jjjjjjj# v2ray_config
+# v2ray_config
 
 This repository includes both server and client end of configuration for v2ray
 
