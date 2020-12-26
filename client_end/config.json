@@ -1,90 +1,84 @@
 {
-  "log": {
-    "error": "",
-    "loglevel": "info",
-    "access": ""
+  "log" : {
+    "loglevel" : "warning"
   },
-  "inbounds": [
+  "dns": {
+    "servers": [
+      "114.114.114.114",
+      {
+        "address": "1.1.1.1",
+        "port": 53,
+        "domains": [
+          "geosite:geolocation-!cn"
+        ]
+      }
+    ]
+  },
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "direct", 
+        "domain": ["geosite:cn"] 
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct", 
+        "ip": [
+          "geoip:cn", 
+          "geoip:private"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "proxy",
+        "network": "udp,tcp"
+      }  
+    ]
+  },
+  "inbounds" : [
     {
+      "port": 10800,
       "listen": "127.0.0.1",
       "protocol": "socks",
       "settings": {
-        "udp": false,
-        "auth": "noauth"
-      },
-      "port": "1080"
-    },
-    {
-      "listen": "127.0.0.1",
-      "protocol": "http",
-      "settings": {
-        "timeout": 360
-      },
-      "port": "1087"
+        "udp": true
+      }
     }
   ],
-  "outbounds": [
+  "outbounds" : [
     {
-      "mux": {
-        "enabled": true,
-        "concurrency": 8
+      "mux" : {
+        "enabled" : true,
+        "concurrency" : 8
       },
-      "protocol": "vmess",
-      "streamSettings": {
-        "tcpSettings": {
-          "header": {
-            "type": "none"
-          }
-        },
+      "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "18.191.216.55", 
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "e3325ffc-1532-4aac-a8a9-455430452599",
+                                "encryption": "none",
+                                "level": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+      "streamSettings" : {
+        "network": "ws",
+        "security": "tls",
         "tlsSettings": {
-          "allowInsecure": true
+            "serverName": "ericbai.top"
         },
-        "security": "none",
-        "network": "tcp"
-      },
-      "tag": "proxy",
-      "settings": {
-        "vnext": [
-          {
-            "address": "18.191.107.40",
-            "users": [
-              {
-                "id": "e3325ffc-1532-4aac-a8a9-455430452599",
-                "alterId": 64,
-                "level": 0,
-                "security": "auto"
-              }
-            ],
-            "port": 24380
-          }
-        ]
-      }
-    },
-    {
-      "tag": "direct",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIP",
-        "redirect": "",
-        "userLevel": 0
-      }
-    },
-    {
-      "tag": "block",
-      "protocol": "blackhole",
-      "settings": {
-        "response": {
-          "type": "none"
+        "wsSettings": {
+            "path": "/websocket" 
         }
       }
     }
-  ],
-  "dns": {},
-  "routing": {
-    "settings": {
-      "domainStrategy": "AsIs",
-      "rules": []
-    }
-  },
-  "transport": {}
+  ]
 }

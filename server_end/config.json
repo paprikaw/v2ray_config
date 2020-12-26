@@ -1,39 +1,72 @@
 {
   "log": {
-    "loglevel": "debug", 
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
+    "loglevel": "debug"
   },
-  "inbounds": [{
-    "port": 443,
-    "protocol": "vmess",
-    "settings": {
-      "clients": [
-        {
-          "id": "e3325ffc-1532-4aac-a8a9-455430452599",
-          "alterId": 64
-        }
-      ]
-    },
-    "streamSettings": {
-      "network": "ws",
-      "security": "tls", 
-      "tlsSettings": {
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "e3325ffc-1532-4aac-a8a9-455430452599",
+            "level": 0
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+            {
+                "dest": 80
+            },
+            {
+                "path": "/websocket", 
+                "dest": 1234,
+                "xver": 1
+            }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls", 
+        "tlsSettings": {
+          "alpn": [
+            "http/1.1"
+        ],
         "certificates": [
           {
             "certificateFile": "/usr/local/etc/v2ray/v2ray.crt", 
             "keyFile": "/usr/local/etc/v2ray/v2ray.key" 
           }
         ]
+        }
       }
-    }
-  }],
-  "outbounds": [{
-    "protocol": "freedom",
-    "settings": {}
-  },{
-    "protocol": "blackhole",
-    "settings": {},
-    "tag": "blocked"
-  }]
+    }, 
+    {
+      "port": 1234,
+      "listen": "127.0.0.1",
+      "protocol": "vless",
+      "settings": {
+          "clients": [
+              {
+                  "id": "e3325ffc-1532-4aac-a8a9-455430452599", 
+                  "level": 0
+              }
+          ],
+          "decryption": "none"
+      },
+      "streamSettings": {
+          "network": "ws",
+          "security": "none",
+          "wsSettings": {
+              "acceptProxyProtocol": true, 
+              "path": "/websocket" 
+          }
+      }
+  }
+],
+"outbounds": [
+  {
+      "protocol": "freedom"
+  }
+]
 }

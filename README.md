@@ -1,8 +1,7 @@
 # v2ray_config
 
-> This repository includes both server and client end of configuration for v2ray
-> 
-> This configuration use AWS ec2 debian 9 instance as server.
+> * This repository includes both server and client end of configurations for v2ray
+> * This configuration use AWS ec2 debian 9 instance as server.
 # 基础配置步骤：
 
 #### 服务器端：
@@ -18,11 +17,13 @@
      ```
     
 #### 客户端：
-在这里我使用的是 [V2rayU](https://github.com/yanue/V2rayU/releases), 完全使用客户端GUI配置. 具体配置选项如下：
-
-
+* GUI 可以选择 [V2rayU](https://github.com/yanue/V2rayU/releases)
+* 使用v2ray command-line version 可以使用以下命令获取config.json
+  ```
+  curl -o /usr/local/etc/v2ray/config.json https://raw.githubusercontent.com/paprikaw/v2ray_config/main/client_end/config.json
+  ```
 # 参考
 [v2ray+tls配置方法](https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E8%87%AA%E5%BB%BAV2Ray%2BTLS%E7%BF%BB%E5%A2%99%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95.md)
 
-[v2ray各平台基础配置（包括移动平台）](https://book.v2rayx.org/index.html)f
+[v2ray各平台基础配置（包括移动平台）](https://book.v2rayx.org/index.html)
 
