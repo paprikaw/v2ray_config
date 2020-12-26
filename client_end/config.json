@@ -1,49 +1,39 @@
 {
-  "log" : {
-    "loglevel" : "warning"
+  "log": {
+      "loglevel": "warning"
   },
-  "inbounds" : [
-    {
-      "port": 1080,
-      "listen": "127.0.0.1",
-      "protocol": "socks",
-      "settings": {
-        "udp": true
+  "inbounds": [
+      {
+          "port": 1080,
+          "listen": "127.0.0.1",
+          "protocol": "socks",
+          "settings": {
+              "udp": true
+          }
       }
-    }
   ],
-  "outbounds" : [
-    {
-      "mux" : {
-        "enabled" : true,
-        "concurrency" : 8
-      },
-      "protocol": "vless",
-            "settings": {
-                "vnext": [
-                    {
-                        "address": "18.191.216.55", 
-                        "port": 443,
-                        "users": [
-                            {
-                                "id": "e3325ffc-1532-4aac-a8a9-455430452599",
-                                "encryption": "none",
-                                "level": 0
-                            }
-                        ]
-                    }
-                ]
-            },
-      "streamSettings" : {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-            "serverName": "ericbai.top"
-        },
-        "wsSettings": {
-            "path": "/websocket" 
-        }
+  "outbounds": [
+      {
+          "protocol": "vless",
+          "settings": {
+              "vnext": [
+                  {
+                      "address": "ericbai.top", 
+                      "port": 443,
+                      "users": [
+                          {
+                              "id": "e3325ffc-1532-4aac-a8a9-455430452599", 
+                              "encryption": "none",
+                              "level": 0
+                          }
+                      ]
+                  }
+              ]
+          },
+          "streamSettings": {
+              "network": "tcp",
+              "security": "tls"
+          }
       }
-    }
   ]
 }
