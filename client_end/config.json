@@ -1,43 +1,6 @@
 {
   "log" : {
-    "loglevel" : "warning",
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
-  },
-  "dns": {
-    "servers": [
-      "114.114.114.114",
-      {
-        "address": "1.1.1.1",
-        "port": 53,
-        "domains": [
-          "geosite:geolocation-!cn"
-        ]
-      }
-    ]
-  },
-  "routing": {
-    "domainStrategy": "IPOnDemand",
-    "rules": [
-      {
-        "type": "field",
-        "outboundTag": "direct", 
-        "domain": ["geosite:cn"] 
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct", 
-        "ip": [
-          "geoip:cn", 
-          "geoip:private"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "proxy",
-        "network": "udp,tcp"
-      }  
-    ]
+    "loglevel" : "warning"
   },
   "inbounds" : [
     {
