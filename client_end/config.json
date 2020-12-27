@@ -33,13 +33,10 @@
                 ]
             },
             "streamSettings": {
-                "network": "ws",
+                "network": "tcp",
                 "security": "tls",
                 "tlsSettings": {
                     "serverName": "ericbai.top"
-                },
-                "wsSettings": {
-                    "path": "/websocket"
                 }
             }
         }
