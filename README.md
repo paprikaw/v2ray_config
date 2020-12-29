@@ -20,7 +20,11 @@
   ```
 
 ### 客户端：
-
+#### 配置文件位置：
+* v2ray 资源文件：/usr/local/share/v2ray
+* v2ray 配置文件：/usr/local/etc/v2ray
+  
+#### 配置步骤：
 - mac 用户 GUI 可以选择 [V2rayU](https://github.com/yanue/V2rayU/releases)，windows 用户和 Linux 用户请自行搜索 GUI 客户端
 - 使用 v2ray command-line version 可以使用以下命令获取 config.json：
   > 同理，请将以下命令中 confij.json 的路径替换成你的路径
