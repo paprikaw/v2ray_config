@@ -1,6 +1,30 @@
 {
+    "dns": {
+        "servers": [
+            {
+                "address": "119.29.29.29",
+                "port": 53,
+                "domains": [
+                    "geosite:cn"
+                ],
+                "expectIPs": [
+                    "geoip:cn"
+                ]
+            },
+            {
+                "address": "8.8.8.8",
+                "port": 53,
+                "domains": [
+                    "geosite:geolocation-!cn",
+                    "geosite:speedtest"
+                ]
+            },
+            "1.1.1.1",
+            "localhost"
+        ]
+    },
     "log": {
-        "loglevel": "debug",
+        "loglevel": "warning",
         "access": "/usr/local/var/log/v2ray/access.log",
         "error": "/usr/local/var/log/v2ray/error.log"
     },
@@ -31,7 +55,6 @@
                         ]
                     }
                 ]
-                
             },
             "streamSettings": {
                 "network": "tcp",
@@ -40,7 +63,9 @@
                     "serverName": "ericbai.top"
                 }
             },
-            "mux": {"enabled": true}
+            "mux": {
+                "enabled": true
+            }
         }
     ]
 }
