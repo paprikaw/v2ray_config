@@ -1,1 +1,2 @@
-本配置DNS及routing部分参考 [Loyalsoldier的v2ray-rules增强版](https://github.com/Loyalsoldier/v2ray-rules-dat) 中的自用配置
+* 本配置DNS及routing部分参考 [Loyalsoldier的v2ray-rules增强版](https://github.com/Loyalsoldier/v2ray-rules-dat) 中的自用配置
+* 此配置中的geoip和geosite包是 [Loyalsoldier的v2ray-rules增强版](https://github.com/Loyalsoldier/v2ray-rules-dat) 中所构建的，如果需要使用本配置需要安装此增强包
