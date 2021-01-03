@@ -132,13 +132,6 @@
       },
       {
         "type": "field",
-        "outboundTag": "Reject",
-        "domain": [
-          "geosite:category-ads-all"
-        ]
-      },
-      {
-        "type": "field",
         "outboundTag": "Proxy",
         "domain": [
           "full:www.icloud.com",
